@@ -1,0 +1,16 @@
+Relatorio de testes 14/05/2018
+
+Modificacoes feitas no codigo que merecem registro caso precisem ser desfeitas:
+
+- rawlen modificado de uint8_t para uint16_t para caso algum controle emita valores acima de 8bits (https://forum.arduino.cc/index.php?topic=197030.15 -> windhawk)
+
+- gap modificado de 5000 para 50000 para maior janela de captação (https://forum.arduino.cc/index.php?topic=197030.0 -> DiegoCarrilho)
+
+Video excelente que recapitula diversos conceitos, uma aula breve e completa sobre como funcionam os protocolos: https://www.youtube.com/watch?time_continue=722&v=V4nM8qd07fE
+- todos os transmissores e receptores trabalham a 38khz, isso não é mais uma variável e não devo me preocupar com isso
+- os protocolos de IR não transmitem informação apenas com sinal alto e baixo, os diferentes protocolos utilizam padrões mais complexos como o NEC apresentado no vídeo
+- por isso se um protocolo for conhecido o melhor caminho é usar a função espefcifica para fazer o envio, porque enviar como RAW vai fazer perder o ajuste fino
+- para casos em que o protocolo não é identificado ainda é possível fazer a transmissão utilizando o RAW, a parte ruim disso é que posso estar sofrendo com ruidos quando o protocolo nao for identificado e consequentemente não vai funcionar quando eu tentar enviar
+
+O site https://irdb.globalcache.com/Home/Database tem sido a melhor base de codigos até o momento. O site http://irdb.tk/capture/ tem uma ferramenta de analise do codigo que compara com muito mais protocolos do que o codigo do IrrecvDump
+

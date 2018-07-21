@@ -109,7 +109,7 @@ void setup(void)
   // Start Serial
   Serial.begin(115200);
 
-  // Set callback
+  // Set callback aRest
   client.setCallback(callback);
 
   //LED de sinalização para os eventos
